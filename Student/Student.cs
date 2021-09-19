@@ -35,7 +35,7 @@ namespace Student
             GraduationDate = DateTime.Now;
             EndDate = DateTime.Now;
 
-            _status = _setStudentStatus(DateTime.Now);
+            _status = DetermineStatus(DateTime.Now, StartDate, EndDate, GraduationDate);
         }
         public Student(string name, string surname, DateTime startDate, DateTime gradDate, DateTime endDate)
         {
@@ -49,14 +49,14 @@ namespace Student
             GraduationDate = gradDate;
             EndDate = endDate;
 
-            _status = _setStudentStatus(DateTime.Now);
+            _status = DetermineStatus(DateTime.Now, StartDate, EndDate, GraduationDate);
         }
 
-        private EnrollmentStatus _setStudentStatus(DateTime now) => 
+        public static EnrollmentStatus DetermineStatus(DateTime now, DateTime StartDate, DateTime EndDate, DateTime GraduationDate) => 
             DateTime.Compare(EndDate, GraduationDate) switch
             {
                 <0 => EnrollmentStatus.Dropout,
-                0 => DateTime.Compare(now, StartDate) switch
+                _ => DateTime.Compare(now, StartDate) switch
                 {
                     <0 => EnrollmentStatus.New,
                     _ => DateTime.Compare(now, EndDate) switch
@@ -64,8 +64,7 @@ namespace Student
                         <0 => EnrollmentStatus.Active,
                         _ => EnrollmentStatus.Graduated
                     }
-                },
-                _ => EnrollmentStatus.Graduated
+                }
             };   
 
 
