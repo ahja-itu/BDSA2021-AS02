@@ -1,0 +1,116 @@
+% https://da.overleaf.com/latex/templates/cs310-assignment-template/qrqpndrxpcht
+%%%%%%%%%%%%%%%%% DO NOT CHANGE HERE %%%%%%%%%%%%%%%%%%%% {
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{setspace} % for \onehalfspacing and \singlespacing macros
+\usepackage{etoolbox}
+
+\AtBeginEnvironment{quote}{\par\singlespacinsg\small}
+
+\definecolor{BackgroundColor}{rgb}{0.9,0.9,0.9}
+\definecolor{OliveGreen}{rgb}{0,0.6,0}
+
+\lstset{
+  basicstyle=\normalsize\fontencoding{T1}\ttfamily,
+  language=C++,
+  backgroundcolor=\color{BackgroundColor},
+  tabsize=4,
+  captionpos=b,
+  %tabsize=3,
+  frame=lines,
+  numbers=left,
+  numberstyle=\tiny,
+  numbersep=5pt,
+  breaklines=true,
+  showstringspaces=false,
+  keywordstyle=\color{blue},
+  commentstyle=\color{OliveGreen},
+  stringstyle=\color{red}
+  }
+
+\hypersetup{%
+    colorlinks=true,
+    linkcolor=blue,
+    linkbordercolor={0 0 1}
+}
+
+\renewcommand{\labelenumii}{\theenumii}
+\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.1in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% }
+
+%%%%%%%%%%%%%%%%%%%%%%%% CHANGE HERE %%%%%%%%%%%%%%%%%%%% {
+\newcommand\course{BDSA2021}
+\newcommand\semester{\today}
+\newcommand\hwnumber{01}         % <-- ASSIGNMENT #
+\newcommand\NetIDa{Andreas Wachs Hjalager}      % <-- YOUR NAME
+\newcommand\NetIDb{19167}      % <-- STUDENT ID #
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% }
+
+%%%%%%%%%%%%%%%%% DO NOT CHANGE HERE %%%%%%%%%%%%%%%%%%%% {
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\Student ID: \NetIDb}
+\chead{\textbf{\Large Assignment \hwnumber}}
+\rhead{\course \\ \semester}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% }
+
+\lstdefinestyle{sharpc}{language=[Sharp]C}
+\lstset{style=sharpc}
+
+\begin{document}
+\section{GitHub repository link}
+
+You should be able to click a link right \href{https://github.com/andreaswachs/BDSA2021-AS02}{here}, 
+otherwise the link will be displayed just below, for you to copy:
+
+\lstinline{https://github.com/andreaswachs/BDSA2021-AS02}
+
+
+\section{C\#}
+
+\subsection{Exercise 4}
+
+Common for all three constructs is that they have \textit{fields}, such that we can capture a group of values in one place.
+
+Classes differentiate themselves from structs and records by enabling the programmer to define methods contained within the class.
+
+Records stand out as being holding immutable data, and it uses value-based equality. This means that once values in one record instance has been set, they cannot be changed. This means that if you wish to update a value in a record, a whole new record will be created. This stems from functional programming languages and helps with memory safety for systems that are heavily relying on concurrency to do work.
+
+Records compared to each other will have their record type definitions compared, along with all of the values contained within. This is different from classes, where one needs to implement specific equality methods to evaluate equal values for two instances of the same class.
+
+Structs is the simplest data structure, where data is mutable and no method definitions are captured within the struct. 
+
+\section{Software Engineering}
+
+\subsection{Exercise 2}
+
+A use case describes how the system, or parts of the system is used by different actors. It describes the overall interaction and therefore can one use case be used in many scenarios.
+
+A scenario is a more detailed story about how a single event of interaction can play out. One scenario will not describe all the possible interactions that the same parts of the system can have with actors.
+
+Scenarios match \textit{many-to-one} for use cases, such that many scenarios can describe many possible \textit{scenarios} that can happen in a single, abstract use case.
+
+\end{document}
+
+    
